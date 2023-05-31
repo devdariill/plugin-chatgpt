@@ -64,6 +64,7 @@ app.put('/todos/:id', async (req,res)=>{
       TODOS[i] = newTodo
     }
   })
+  return res.json(newTodo)
   // TODOS = TODOS.map(todo=>{
   //   if(todo.id===id){
   //     newTodo = {...todo, title}      
