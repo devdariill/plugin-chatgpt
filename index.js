@@ -37,7 +37,20 @@ app.get('/logo.png', async (req,res)=>{
 })
 
 // conect to db
-
+app.get('/search',async (req,res)=>{
+  const {q} = req.query
+  const apiURL = "https://api.github.com/search/repositories?q="+q
+  const response = await fetch(apiURL,{
+    headers:{
+      'User-Agent':'ChatChatGPT Plugin v1.0.0 - @midudev', // para reconocimiento 
+      'Accept':'application/vnd.github.v3+json'
+    }
+  })
+  if (!response.ok) {
+    res.status(500).send({error:"/search"})
+  }
+  console.log(response.headers.get('X-RateLimit-Remaining'))
+})
 
 app.listen(PORT, () => {
   try {
