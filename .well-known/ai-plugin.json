@@ -1,7 +1,7 @@
 {
   "schema_version": "v1",
-  "name_for_human": "GitHub Search Repositories Plugin",  
-  "name_for_model":"github-search-repositories-plugin",
+  "name_for_human": "GitHub Search Repositories",  
+  "name_for_model":"github_search_repositories",
   "description_for_human": "Search repositories on GitHub using ChatGPT",
   "description_for_model": "Plugin for search repositories on GitHub", 
   "auth":{
