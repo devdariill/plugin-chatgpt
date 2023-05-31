@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
-  "name_for_human": "GitHub Search Repositories Plugin",  
-  "name_for_model":"github-search-repositories-plugin",
-  "description_for_human": "Search repositories on GitHub using ChatGPT",
-  "description_for_model": "Plugin for search repositories on GitHub", 
+  "name_for_human": "To Do Plugin",
+  "name_for_model":"todo",
+  "description_for_human": "Manage a ToDo list",
+  "description_for_model": "Plugin for managing a ToDo list for ChatGPT. You can add, remove, vide and edit items.",
   "auth":{
     "login": "none"
   },
