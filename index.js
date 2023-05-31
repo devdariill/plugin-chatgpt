@@ -54,7 +54,24 @@ app.get('/todos/:id', async (req,res)=>{
   if(!todo) return res.status(404).json({error:"get not found"})
   res.json(todo)
 })
-
+app.put('/todos/:id', async (req,res)=>{
+  let newTodo = null
+  const {id} = req.params
+  const {title} = req.body
+  TODOS.forEach((todo,i)=>{
+    if(todo.id===id){
+      newTodo = {...todo, title}
+      TODOS[i] = newTodo
+    }
+  })
+  // TODOS = TODOS.map(todo=>{
+  //   if(todo.id===id){
+  //     newTodo = {...todo, title}      
+  //     return newTodo
+  //   }
+  //   return todo
+  // })
+})
 app.delete('/todos/:id', async (req,res)=>{
   const {id} = req.params
   TODOS = TODOS.filter(todo=>todo.id!==id)
