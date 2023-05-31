@@ -50,6 +50,14 @@ app.get('/search',async (req,res)=>{
     res.status(500).send({error:"/search"})
   }
   console.log(response.headers.get('X-RateLimit-Remaining'))
+  const json = await response.json()
+  const repos = json.items.map(repo=>({
+    name:repo.name,
+    description:repo.description,
+    stars:repo.stargazers_count,
+    url:repo.html_url
+  }))
+  res.send(repos)
 })
 
 app.listen(PORT, () => {
