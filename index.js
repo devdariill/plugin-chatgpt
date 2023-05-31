@@ -7,6 +7,7 @@ import path from "node:path"
 const PORT = process.env.PORT ?? 3000
 const app = express()
 app.use(cors({
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   origin: ['http://localhost:3000','https://chat.openai.com'],
 }))
 app.use(json())
