@@ -1,0 +1,25 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Spotigen (PROD)",
+  "name_for_model": "Spotigen",
+  "description_for_model": "Spotigen crafts personalized music playlists based on a user's mood, daily experiences, or preferences. It enhances user-generated content with mood-congruent music and can create playlists from user's favorites.",
+  "description_for_human": "Spotigen is an AI DJ crafting playlists to match your mood or day, and enhancing your content with suitable music.",
+  "auth": {
+    "type": "oauth",
+    "client_url": "https://accounts.spotify.com/authorize",
+    "scope": "playlist-modify-public",
+    "authorization_url": "https://accounts.spotify.com/api/token",
+    "authorization_content_type": "application/x-www-form-urlencoded",
+    "verification_tokens": {
+      "openai": "4e1a207e8c504d369f8506ecddcbb216"
+    }
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://spotigen.vercel.app/static/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://spotigen.vercel.app/static/logo.png",
+  "contact_email": "railly.angelo@gmail.com",
+  "legal_info_url": "http://raillyhugo.com/legal"
+}
