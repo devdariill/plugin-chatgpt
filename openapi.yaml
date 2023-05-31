@@ -6,12 +6,19 @@ info:
   description: API Specification for ChatGPT Plugin ToDO API
 
 paths:
-  /todos:
+  /search:
     get:
-      summary: Get all todos
-      operationId: getTodos
+      summary: Search GitHub Repositories using a query string
+      operationId: searchGitHub
       tags:
-        - todos
+        - github
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Query string to search GitHub repositories
+          schema:
+            type: string
       responses:
         '200':
           description: OK get all
@@ -20,113 +27,27 @@ paths:
               schema:
                 type: object
                 properties:
-                  todos:
+                  repos:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Todo'
-      post:
-        summary: Create a todo
-        operationId: createTodo
-        tags:
-          - todos
-        requestBody:
-          required: true
-          description: Todo object to be created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TodoInput'
-        responses:
-          '200':
-            description: OK post
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Todo'
-  /todos/{id}:
-    get:
-      summary: Get a todo by id
-      operationId: getTodo
-      tags:
-        - todos
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the todo to return
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK get id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Todo'
-      put:
-        summary: Update a todo by id
-        operationId: updateTodo
-        tags:
-          - todos
-        parameters:
-          - name: id
-            in: path
-            required: true
-            description: ID of the todo to update
-            schema:
-              type: string
-        requestBody:
-          required: true
-          description: Todo object to be updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TodoInput'
-        responses:
-          '200':
-            description: OK put
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Todo'
-      delete:
-        summary: Delete a todo by id
-        operationId: deleteTodo
-        tags:
-          - todos
-        parameters:
-          - name: id
-            in: path
-            required: true
-            description: ID of the todo to delete
-            schema:
-              type: string
-        responses:
-          '200':
-            description: OK delete
-            content:
-              application/json:
-                type: object
-                properties:
-                  ok:
-                    type: boolean
+                      $ref: '#/components/schemas/Repository'
 
 components:
   schemas:
-    Todo:
+    Repository:
       type: object
       properties:
-        id:
+        name:
           type: string
-        title:
+        stars:
+          type: integer
+        url:
           type: string
-      required:
-        - id
-        - title
-    TodoInput:
-      type: object
-      properties:
-        title:
+        description:
           type: string
-      required:
-        - title
+      required:        
+        - name
+        - stars
+        - url
+        - description
+        
