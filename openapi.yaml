@@ -13,7 +13,7 @@ paths:
       tags:
         - github
       parameters:
-        - name: query
+        - name: q
           in: query
           required: true
           description: Query string to search GitHub repositories
