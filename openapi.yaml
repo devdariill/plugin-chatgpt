@@ -110,3 +110,23 @@ paths:
                 properties:
                   ok:
                     type: boolean
+
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+      required:
+        - id
+        - title
+    TodoInput:
+      type: object
+      properties:
+        title:
+          type: string
+      required:
+        - title
