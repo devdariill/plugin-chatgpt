@@ -20,7 +20,11 @@ app.get('/openapi.yaml', async (req,res)=>{
   } catch (error) {
     console.log("/openapi.yaml",error.message)
     res.status(500).send({error:"/openapi.yaml"})
-  }
+  }  
+})
+
+app.get('/.well-known/ai-plugin.json', async (req,res)=>{
+  res.sendFile(path.join(process.cwd(), '/.well-known/ai-plugin.json'))
 })
 
 app.listen(PORT, () => {
