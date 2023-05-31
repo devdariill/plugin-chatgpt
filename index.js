@@ -27,6 +27,10 @@ app.get('/.well-known/ai-plugin.json', async (req,res)=>{
   res.sendFile(path.join(process.cwd(), '/.well-known/ai-plugin.json'))
 })
 
+app.get('/logo.png', async (req,res)=>{
+  res.sendFile(path.join(process.cwd(), '/logo.png'))
+})
+
 app.listen(PORT, () => {
   try {
     console.log("listen on port"+PORT)
