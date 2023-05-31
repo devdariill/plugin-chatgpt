@@ -1,3 +1,4 @@
+import cors from "cors"
 import express, { json } from "express"
 import crypto from "node:crypto"
 import fs from "node:fs/promises"
@@ -5,6 +6,9 @@ import path from "node:path"
 
 const PORT = process.env.PORT ?? 3000
 const app = express()
+app.use(cors({
+  origin: ['http://localhost:3000','https://chat.openai.com'],
+}))
 app.use(json())
 
 app.use((req,res,next)=>{
